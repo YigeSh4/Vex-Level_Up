@@ -45,16 +45,16 @@ while 1:
     else:
         dt.stop()
 
-    if ctrl.buttonLUp.pressing():
+    if ctrl.buttonLUp.pressing() or ctrl.buttonEUp.pressing():
          MotorGroup1.spin(FORWARD, 300, PERCENT)
-    elif ctrl.buttonLDown.pressing():
+    elif ctrl.buttonLDown.pressing() or ctrl.buttonEDown.pressing():
          MotorGroup1.spin(REVERSE, 300, PERCENT)
     else:
          MotorGroup1.stop(HOLD)
 
-    if ctrl.buttonRUp.pressing():
+    if ctrl.buttonRUp.pressing() or ctrl.buttonFUp.pressing():
          MotorHand.spin(FORWARD, 100, PERCENT)
-    elif ctrl.buttonRDown.pressing():
+    elif ctrl.buttonRDown.pressing() or ctrl.buttonFDown.pressing():
          MotorHand.spin(REVERSE, 100, PERCENT)
     else:
          MotorHand.stop()
