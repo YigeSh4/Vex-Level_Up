@@ -19,7 +19,7 @@ MotorL = Motor(Ports.PORT12)
 MotorR = Motor(Ports.PORT3, True)
 
 MotorArm = Motor(Ports.PORT1, True)
-MotorArm2 = Motor(Ports.PORT10)
+MotorArm2 = Motor(Ports.PORT10,True)
 MotorHand = Motor(Ports.PORT4)
 MotorGroup1 = MotorGroup(MotorArm,MotorArm2)
 Switch1 = Bumper(Ports.PORT2)
@@ -39,9 +39,9 @@ MotorArm2.set_velocity(50,PERCENT)
 
 while 1:
     if ctrl.axisA.position() > 10 or ctrl.axisA.position() < -10:
-        dt.drive(FORWARD, ctrl.axisA.position(), PERCENT)
+        dt.drive(FORWARD, ctrl.axisA.position() * 10 , PERCENT)
     elif ctrl.axisC.position() > 10 or ctrl.axisC.position() < -10:
-            dt.turn(LEFT, ctrl.axisC.position(), PERCENT)
+            dt.turn(LEFT, ctrl.axisC.position() * 10 , PERCENT)
     else:
         dt.stop()
 
